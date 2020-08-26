@@ -31,11 +31,11 @@
             //que la declaramos en el metodo creado en
             //includes/funciones/funciones.php 
             //almecenamos el valor que retorna el metodo json en una variable 
-            $pedido = productos_json($boletos,$camisas,$etiquetas);
-
+            $pedido = productos_json($boletos, $camisas, $etiquetas);
 
             //EVENTOS
             $eventos = $_POST['registro'];
+
             $registo = eventos_json($eventos);
 
             try{
@@ -52,7 +52,7 @@
                   //y estamos almacenando la query en una variable 
                   //los valores a insertar se dejan con el signo de ? ya que en otra función
                   //setiaremos los valores de ? por los valores que se agregaran a la base de datos
-                  $stmt = $conn->prepare("insert into registrados(nombre_registrado
+                  $stmt = $conn->prepare("INSERT INTO registrados(nombre_registrado
                                                                  ,apellido_registrado
                                                                  ,email_registrado
                                                                  ,fecha_registro
@@ -72,13 +72,13 @@
                   //van las variables que traen los valores a insertar
                   //las variables $pedido y $regalo son los valores que obtenimos de los json que creamos
                   //para obtener de forma correcta los valores
-                  $stmt->bind_param("ssssssis, $nombre, $apellido, $email, $fecha, $pedido, $registo, $regalo, $total");
+                  $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registo, $regalo, $total);
                   //con el metodo execute estamos diciendole a la variable
                   //que ejecute la query que almacena y que agrege los valores acorde a como los detallamos
                   $stmt->execute();
                   $stmt->close();
                   $conn->close();
-            } catch(\Exception $e) {
+            } catch(Exception $e) {
                   //almacenado y imprimiendo error en conexion a la base de datos
                   echo $e->getMessage();
             }
