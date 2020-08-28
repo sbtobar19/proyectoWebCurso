@@ -283,6 +283,8 @@ $(function(){
 
     //ColorBox
     $('.invitado-info').colorbox({inline:true, width:"50%"});
+    //estilo para pop up de boton registrar
+    $('.boton_newsletter').colorbox({inline:true, width:"50%"});
 
 });
 

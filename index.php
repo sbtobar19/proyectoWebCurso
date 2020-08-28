@@ -264,7 +264,8 @@
     <div class="contenido contenedor">
         <p>Registrate al Newsletter</p>
         <h3>gdlwebcamp</h3>
-        <a href="#" class="button transparente"> Registro</a>
+        <!--se agrega la referencia hacia el id existente en el foter en la seccion del pop up de mailchimp-->
+        <a href="#mc_embed_signup" class="boton_newsletter button transparente"> Registro</a>
     </div><!--contenido-->
 </div><!--newsletter-->
 
